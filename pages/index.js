@@ -11,10 +11,7 @@ export default function Home({ liff, liffError }) {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    console.log(liff);
     const idToken = await liff.getIDToken();
-    const version = await liff.getVersion();
-    const isReady = await liff.ready;
     console.log("idToken", idToken, version, isReady);
     await axios({
       method: "post",
@@ -27,9 +24,6 @@ export default function Home({ liff, liffError }) {
       },
     });
   };
-  // useEffect(async () => {
-  //   // use axios to call webhook
-  // }, []);
 
   return (
     <div>
