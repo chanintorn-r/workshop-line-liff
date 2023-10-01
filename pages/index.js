@@ -18,7 +18,7 @@ export default function Home({ liff, liffError }) {
     console.log("idToken", idToken, version, isReady);
     await axios({
       method: "post",
-      url: "https://f982-202-183-226-2.ngrok-free.app/workshop-l/asia-northeast1/workshop-auth",
+      url: "https://ac0d-202-183-226-2.ngrok-free.app/workshop-l/asia-northeast1/workshop-auth",
       headers: {
         Authorization: idToken,
       },
