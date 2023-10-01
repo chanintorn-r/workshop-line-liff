@@ -14,7 +14,7 @@ export default function Home({ liff, liffError }) {
     console.log(liff);
     const idToken = await liff.getIDToken();
     const version = await liff.getVersion();
-    const isReady = await liff.ready();
+    const isReady = await liff.ready;
     console.log("idToken", idToken, version, isReady);
     await axios({
       method: "post",
