@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Head from "next/head";
 import axios from "axios";
 
-export default function Home({ liff, liffError }) {
+export default function Home({}) {
   const {
     register,
     handleSubmit,
@@ -12,7 +12,10 @@ export default function Home({ liff, liffError }) {
   const [idToken, setIdToken] = useState();
 
   useEffect(async () => {
-    // const liff = (await import("@line/liff")).default;
+    const liff = (await import("@line/liff")).default;
+    try {
+      await liff.init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID });
+    } catch (error) {}
     await liff.ready;
     if (!liff.isLoggedIn()) {
       liff.login();
