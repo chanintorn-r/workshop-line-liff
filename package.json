@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@line/liff": "2.22.3",
+    "flowbite": "^1.8.1",
+    "flowbite-react": "^0.6.3",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
