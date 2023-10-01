@@ -14,9 +14,6 @@ function MyApp({ Component, pageProps }) {
       console.error("liff init error", error.message);
       setLiffError(error.toString());
     }
-    if (!liff.isLoggedIn()) {
-      liff.login();
-    }
   }, []);
 
   // Provide `liff` object and `liffError` object

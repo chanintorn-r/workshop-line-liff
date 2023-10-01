@@ -7,12 +7,21 @@ export default function Home({ liff, liffError }) {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = async (data) => {
+  const [idToken, setIdToken] = useState({});
+
+  useEffect(async () => {
+    // const liff = (await import("@line/liff")).default;
+    await liff.ready;
+    if (!liff.isLoggedIn()) {
+      liff.login();
+    }
     const idToken = await liff.getIDToken();
-    console.log("idToken", idToken, version, isReady);
+    setIdToken(idToken);
+  }, [profile.idToken]);
+
+  const onSubmit = async (data) => {
     await axios({
       method: "post",
       url: "https://ac0d-202-183-226-2.ngrok-free.app/workshop-l/asia-northeast1/workshop-auth",
