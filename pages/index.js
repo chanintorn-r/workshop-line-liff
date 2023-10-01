@@ -13,7 +13,9 @@ export default function Home({ liff, liffError }) {
   const onSubmit = async (data) => {
     console.log(liff);
     const idToken = await liff.getIDToken();
-    console.log("idToken", idToken);
+    const version = await liff.getVersion();
+    const isReady = await liff.ready();
+    console.log("idToken", idToken, version, isReady);
     await axios({
       method: "post",
       url: "https://f982-202-183-226-2.ngrok-free.app/workshop-l/asia-northeast1/workshop-auth",
